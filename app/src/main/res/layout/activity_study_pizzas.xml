@@ -1,0 +1,629 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/accentColor"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/check_answer_button"
+        style="@style/CheckButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:onClick="checkPizza"
+        android:text="Check Answer" />
+
+    <TextView
+        android:id="@+id/menu_title"
+        style="@style/MenuItemTitle"
+        android:layout_above="@id/check_answer_button"
+        android:text="" />
+
+    <ScrollView
+        android:id="@+id/main_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/menu_title"
+        android:background="@color/primaryColor"
+        android:screenOrientation="portrait">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primaryColor"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            tools:context="com.bittground.menustudyguide.StudyPizzas">
+
+            <LinearLayout
+                style="@style/IngredientCategoryContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    style="@style/IngredientCategory"
+                    android:text="Sauces" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/alfredo"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Alfredo" />
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/bbq"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="BBQ" />
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/buffalo"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Buffalo" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/carribbean"
+                        style="@style/IngredientButton"
+                        android:background="@drawable/sausage"
+                        android:onClick="toggleSelected"
+                        android:text="Caribbean" />
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/peanut_ginger"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Peanut/Ginger" />
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/pesto"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Pesto" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/pizza"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Pizza" />
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/pizza_garlic"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Pizza/Garlic" />
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/oilgarlic"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Oil/Garlic" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/ranch"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Ranch" />
+
+                    <com.bittground.menustudyguide.SquareButton
+                        style="@style/BlankIngredientButton"
+                        android:clickable="false" />
+
+                    <com.bittground.menustudyguide.SquareButton
+                        style="@style/BlankIngredientButton"
+                        android:clickable="false" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/IngredientCategoryContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    style="@style/IngredientCategory"
+                    android:text="Cheeses/Under Cheese" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/broccoli"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Broccoli" />
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/fontina"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Fontina" />
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/gouda"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Gouda" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/mozzerella"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Mozzarella" />
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/provolone"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Provolone" />
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/spinach"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Spinach" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/sundried_tomatoes"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Sundried Tomatoes" />
+
+                    <com.bittground.menustudyguide.SquareButton
+                        style="@style/BlankIngredientButton"
+                        android:clickable="false" />
+
+                    <com.bittground.menustudyguide.SquareButton
+                        style="@style/BlankIngredientButton"
+                        android:clickable="false" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        <LinearLayout
+            style="@style/IngredientCategoryContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/IngredientCategory"
+                android:text="Ingredients" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/pepperoni"
+                    style="@style/IngredientButton"
+                    android:background="@drawable/pepperoni"
+                    android:onClick="toggleSelected"
+                    android:text="Pepperoni" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/sausage"
+                    style="@style/IngredientButton"
+                    android:background="@drawable/sausage"
+                    android:onClick="toggleSelected"
+                    android:text="Sausage" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/steak"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Steak" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/beef_crumbles"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Beef Crumbles" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/mushrooms"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Mushrooms" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/green_onions"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Green Onions" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/red_peppers"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Red Peppers" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/chicken"
+                    style="@style/IngredientButton"
+                    android:background="@drawable/sausage"
+                    android:onClick="toggleSelected"
+                    android:text="Chicken" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/sliced_tomatoes"
+                    style="@style/IngredientButton"
+                    android:background="@drawable/sausage"
+                    android:onClick="toggleSelected"
+                    android:text="Sliced Tomatoes" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/basil"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Basil" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/bacon"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Bacon" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/kalamata_olives"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Kalamata Olives" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/red_onions"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Red Onions" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/roasted_zucchini"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Roasted Zucchini" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/roasted_garlic"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Roasted Garlic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/oranges"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Oranges" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/pineapple"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Pineapple" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/green_peppers"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Green Peppers" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/artichoke_hearts"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Artichoke Hearts" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/jalapenos"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Jalapenos" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/lettuce"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Shredded Lettuce" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/buffalo_wing_sauce"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Buffalo Wing Sauce" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/sliced_pepperoncini"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Sliced Pepperoncini" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/pine_nuts"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Toasted Pine Nuts" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/black_beans"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Black Beans" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/pear_slices"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Pear Slices" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/prosciutto"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Prosciutto" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/balsamic_glaze"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Balsamic Glaze" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/bbq_chicken_pork"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="BBQ Chicken or Pork" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/peanuts"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Peanuts" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/celery"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Celery" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/diced_tomatoes"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Diced Tomatoes" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/cilantro"
+                    style="@style/IngredientButton"
+                    android:onClick="toggleSelected"
+                    android:text="Cilantro" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <com.bittground.menustudyguide.SquareButton
+                    android:id="@+id/crushed_red_pepper"
+                    style="@style/IngredientButton"
+                    android:background="@drawable/pepperoni"
+                    android:onClick="toggleSelected"
+                    android:text="Crushed Red Pepper Flakes" />
+
+                <com.bittground.menustudyguide.SquareButton
+                    style="@style/BlankIngredientButton"
+                    />
+
+                <com.bittground.menustudyguide.SquareButton
+                    style="@style/BlankIngredientButton"
+                    />
+
+            </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#f0e3c0"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/IngredientCategory"
+                    android:background="#f0e3c0"
+                    android:text="Garnishes" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/bleu_cheese"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Bleu Cheese" />
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/cheddar"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Cheddar" />
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/feta"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Feta" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/parmesan"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Parmesan" />
+
+                    <com.bittground.menustudyguide.SquareButton
+                        android:id="@+id/ricotta_cheese"
+                        style="@style/IngredientButton"
+                        android:onClick="toggleSelected"
+                        android:text="Ricotta Cheese Dollops" />
+
+                    <com.bittground.menustudyguide.SquareButton
+                        style="@style/BlankIngredientButton"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>
